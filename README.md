@@ -5,8 +5,7 @@
 - https://www.youtube.com/watch?v=DvuWTPqmD8I
 
 # 리버싱 기초예제 [abex crackme](http://crackmes.de/users/abex/)
-- TUTS4YOU 강의사이트 
-- https://tuts4you.com/download.php?list.17
+- TUTS4YOU 강의사이트 https://tuts4you.com/download.php?list.17
 - [PEView](http://wjradburn.com/software/)
 - [Detect It Easy](https://tuts4you.com/download.php?view.3518)
 
