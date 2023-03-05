@@ -6,8 +6,8 @@
 
 # 리버싱 기초예제 [abex crackme](http://crackmes.de/users/abex/)
 - TUTS4YOU 강의사이트 https://tuts4you.com/download.phplist.17
-- (PEView)[http://wjradbern.com/software/]
-- (Detect It Easy)[https://tuts4you.com/download.phpview.3518]
+- [PEView](http://wjradbern.com/software/)
+- [Detect It Easy](https://tuts4you.com/download.phpview.3518)
 
 ### OllyDbg
 - OllyDbg 플로그인 OllyDumpEx
